@@ -1,13 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Medium"; /*Can be any text*/
+  src: local("TuskerGrotesk"),
+    url("./fonts/tusker-grotesk-font/TuskerGrotesk-6500Medium.ttf")
+      format("woff");
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Raleway", "Helvetica Neue", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main {
+  animation: fadeInAnimation ease 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h1,
+h2,
+.font-tusker {
+  font-family: "Medium";
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+}
+
+.jump:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.bg-primary {
+  background-color: rgb(2, 175, 84);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+}
+
+.header:after {
+  /* animation: grain 1s steps(10) infinite; */
+  animation: infiniteScrollBg 50s linear infinite;
+  background-image: url("./assets/static2.jpg");
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.1;
+  position: absolute;
+  top: -100%;
+  width: 200%;
+}
+@keyframes infiniteScrollBg {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 50% (-80vh * 2);
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.1;
+  }
+  10% {
+    transform: translate(-5%, -10%);
+    opacity: 0.2;
+  }
+  20% {
+    transform: translate(-15%, 5%);
+    opacity: 0.1;
+  }
+  30% {
+    transform: translate(7%, -25%);
+    opacity: 0.2;
+  }
+  40% {
+    transform: translate(-5%, 25%);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(-15%, 10%);
+    opacity: 0.2;
+  }
+  60% {
+    transform: translate(15%, 0%);
+    opacity: 0.1;
+  }
+  70% {
+    transform: translate(0%, 15%);
+    opacity: 0.2;
+  }
+  80% {
+    transform: translate(3%, 35%);
+    opacity: 0.1;
+  }
+  90% {
+    transform: translate(-10%, 10%);
+    opacity: 0.2;
+  }
+}
+
+.me-img {
+  position: relative;
+}
+
+.me-img-overlay {
+  position: absolute;
+  offset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: rgb(2, 175, 84);
+  z-index: 100;
+}
+
+.contact-img-container {
+  height: 190px;
+  width: 190px;
+  background-color: rgb(0, 175, 105);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.contact-img-container img {
+  position: absolute;
+  top: 46px;
+  right: 40px;
 }
